@@ -10,7 +10,8 @@ public class QuickSort<Key extends Comparable<Key>> {
 	}
 	private void sorted(Key[] array,int head,int tail){
 		if(head >= tail) return;
-		int j = partition(array,head,tail);
+		//int j = partition(array,head,tail);
+		int j = partitionPlus(array,head,tail);
 		sorted(array,head,j-1);
 		sorted(array,j+1,tail);
 	}
@@ -30,6 +31,17 @@ public class QuickSort<Key extends Comparable<Key>> {
 		return j;
 		
 	}
+	private int partitionPlus(Key[] array,int head,int tail) {
+		int i = head - 1;
+		Key standard = array[tail];
+		for(int j = head; j < tail; j++) {
+			if(less(array[j],standard)){
+				exc(array,++i,j);
+			}
+		}
+		exc(array, ++i ,tail);
+		return i;
+	}
 	private void exc(Key[] array, int i, int j) {
 		Key tmp = array[i];
 		array[i] = array[j];
@@ -47,9 +59,9 @@ public class QuickSort<Key extends Comparable<Key>> {
 	}
 	
 	public void sortPop(Key[] array){
-		int tail = array.length -1;
+		int tail = array.length - 1;
 		for(int i = 0;i < tail ; i++){
-			for(int j = i;j < tail;j++){
+			for(int j = 0;j < tail - i;j++){
 				if(lessPop(array[j+1],array[j]))
 					exc(array,j+1,j);
 			}
@@ -57,10 +69,10 @@ public class QuickSort<Key extends Comparable<Key>> {
 	}
 	
 	public static void main(String[] args){
-		QuickSort quick = new QuickSort();
+		QuickSort<String> quick = new QuickSort<String>();
 		String[] array = {"F","B","D","Q","Z","G","A","J","L","T"};
 		//quick.sorted(array);
-		quick.sortPop(array);
+		quick.sorted(array);
 		for(String s:array){
 			System.out.println(s);
 		}

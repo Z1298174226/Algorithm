@@ -22,6 +22,7 @@ public class Quick3divi<Key extends Comparable<Key>> {
 		sort(array,head,i - 1);
 		sort(array,k + 1,tail);
 		
+		
 	}
 	private void exch(Key[] array,int i,int j){
 		Key tmp = array[i];

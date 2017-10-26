@@ -11,7 +11,8 @@ public class HeapSort<Key extends Comparable<Key>> {
 			sink(array,1,n);
 		}
 	}
-	
+
+   
 //	public void sortCopy(Key[] array){
 //		int n = array.length;
 //		for(int i = n;i >= 1;i--){
@@ -48,7 +49,7 @@ public class HeapSort<Key extends Comparable<Key>> {
 		array[j-1] = tmp;
 	}
 	public static void main(String[] args){
-		String[] a = {"G","N","V","B","R","R","T","V","G","X","X","E","E","C","G","N","T","R","Z"};
+		String[] a = {"G","N","V","B","R","R","T","V","G","X","X","E","E","C","G","A","T","R","Z"};
 		HeapSort<String> heap = new HeapSort<String>();
 		heap.sort(a);
 		for(String s: a){

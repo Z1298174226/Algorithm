@@ -24,7 +24,7 @@ public class DijkstraDemo {
 		distTo[(int)s] = 0.0;
 		
 		pq.insert((int)s,distTo[(int)s]);
-		if(!pq.isEmpty()){
+		while(!pq.isEmpty()){
 			long v = pq.delMin();
 			for(DirectedEdge e: G.adj(v)){
 				relax(e);

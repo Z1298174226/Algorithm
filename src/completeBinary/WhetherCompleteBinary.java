@@ -6,6 +6,42 @@ public class WhetherCompleteBinary {
 	private Node root;
 	private Queue<Node> q = new Queue<Node>();
 	private volatile boolean leftMost = false;
+	public WhetherCompleteBinary() {
+		root = new Node();
+		if(whetherCompleteBinary(root))
+			System.out.println("This Binary is complete");
+	}
+	private boolean whetherCompleteBinary(Node root) {
+		if(root == null)
+			System.out.println("This binary is empty");
+		else
+			q.enqueue(root);
+		while(!q.isEmpty()){
+			Node node = q.dequeue();
+			if(!processChild(node.left()))
+				return false;
+			if(!processChild(node.right()))
+				return false;
+		}
+		return true;
+	}
+	private boolean processChild(Node child) {
+		if(child != null)
+			if(!leftMost)
+				q.enqueue(child);
+			else
+				return false;
+		else
+			leftMost = true;
+			
+		return true;
+	}
+}
+/*
+public class WhetherCompleteBinary {
+	private Node root;
+	private Queue<Node> q = new Queue<Node>();
+	private volatile boolean leftMost = false;
 	public WhetherCompleteBinary(){
 		root = new Node();
 		if(whetherCompleteBinary(root)){
@@ -46,3 +82,4 @@ public class WhetherCompleteBinary {
 	}
 	}
 }
+*/

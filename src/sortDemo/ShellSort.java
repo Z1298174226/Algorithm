@@ -13,11 +13,15 @@ public class ShellSort<Key extends Comparable<Key>> {
 			for(int i = h;i<n;i++){
 				for(int j = i;j >= h&& less(array[j],array[j-h]);j -= h){
 					exch(array,j,j-h);
+					
 				}
 			}
 			h /= 3;		
 		}
 	}
+	
+	
+
 	
 	public void sortCopy(Key[] array){
 		int n = array.length;

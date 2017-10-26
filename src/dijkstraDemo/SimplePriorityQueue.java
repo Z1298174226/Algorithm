@@ -206,7 +206,9 @@ public class SimplePriorityQueue<Key extends Comparable<Key>> implements Iterabl
      *         with index {@code i}
      */
     public void insert(int i, Key key) {
+        //if (i < 0 || i >= maxN) throw new IndexOutOfBoundsException();
         if (i < 0 || i >= maxN) throw new IndexOutOfBoundsException();
+        //if (contains(i)) throw new IllegalArgumentException("index is already in the priority queue");
         if (contains(i)) throw new IllegalArgumentException("index is already in the priority queue");
         n++;
         qp[i] = n;
@@ -233,6 +235,7 @@ public class SimplePriorityQueue<Key extends Comparable<Key>> implements Iterabl
      * @throws NoSuchElementException if this priority queue is empty
      */
     public Key minKey() {
+       // if (n == 0) throw new NoSuchElementException("Priority queue underflow");
         if (n == 0) throw new NoSuchElementException("Priority queue underflow");
         return keys[pq[1]];
     }
@@ -377,6 +380,7 @@ public class SimplePriorityQueue<Key extends Comparable<Key>> implements Iterabl
             k = k/2;
         }
     }
+   
 
     private void sink(int k) {
         while (2*k <= n) {

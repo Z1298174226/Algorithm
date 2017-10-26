@@ -178,6 +178,28 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 		node.N = size(node.right) + size(node.left) +1;
 		return node;
 	}
+	public void deleteDemo(Key key){
+		delete(root,key);
+	}
+	private Node deleteDemo(Node node,Key key){
+		if(node == null) return null;
+		int cmp = key.compareTo(root.key);
+		if(cmp < 0) node.left = delete(node.left,key);
+		if(cmp > 0) node.right = delete(node.right,key);
+		else{
+			if(node.left == null) return node.right;
+			if(node.right == null) return node.left;
+			else{
+				Node t = node;
+				node = min(node.right);
+				node.left = t.left;
+				node.right = deleteMin(node.right);
+			}
+		}
+		node.N = size(node.left) + size(node.right) + 1;
+		return node;
+		
+	}
 	public Iterable<Key> key(){
 		return key(min(),max());
 	}

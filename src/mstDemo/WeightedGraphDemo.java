@@ -1,6 +1,7 @@
 package mstDemo;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import edu.princeton.cs.algs4.In;
@@ -44,12 +45,22 @@ public class WeightedGraphDemo {
 		validVertex(v);
 		validVertex(w);
 		adj[v].add(e);
-		adj[w].add(e);
+	//	adj[w].add(e);
 		E++;
 	}
 	private void validVertex(int vertex) {
 		if(vertex<0 || vertex > V)
 			throw new IllegalArgumentException("The vertex is Error!");
+	}
+	
+	public List<EdgeDemo> edges(){
+	List<EdgeDemo> list = new ArrayList<EdgeDemo>();
+	   for(int i = 0; i < V; i++){
+		   for(EdgeDemo e : adj[i]){
+			   list.add(e);
+		   }
+	   }
+	return list;
 	}
 	public int V(){
 		return V;
@@ -57,5 +68,7 @@ public class WeightedGraphDemo {
 	public int E(){
 		return E;
 	}
+	
+
 
 }

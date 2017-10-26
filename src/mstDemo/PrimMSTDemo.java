@@ -24,8 +24,9 @@ public class PrimMSTDemo {
 		}
 		 distTo[0] = 0.0;
 		 pq.add(0, distTo[0]);
-		 for (int v = 0; v < G.V(); v++)      // run from each vertex to find
-	            if (!marked[v]) prim(G, v);      // minimum spanning forest
+//		 for (int v = 0; v < G.V(); v++)      // run from each vertex to find
+//	            if (!marked[v]) prim(G, v);      // minimum spanning forest
+		 prim(G,0);
 	}
 
 	private void prim(WeightedGraphDemo G, int s) {

@@ -25,10 +25,10 @@ public class PrimMST implements MST{
         pq = new IndexMinPQ<Double>(G.V());
         for (int v = 0; v < G.V(); v++)
             distTo[v] = Double.POSITIVE_INFINITY;
-
-        for (int v = 0; v < G.V(); v++)      // run from each vertex to find
-            if (!marked[v]) prim(G, v);      // minimum spanning forest
-
+//
+//        for (int v = 0; v < G.V(); v++)      // run from each vertex to find
+//            if (!marked[v]) prim(G, v);      // minimum spanning forest
+  prim(G,1);
         // check optimality conditions
         assert check(G);
     }
@@ -57,6 +57,7 @@ public class PrimMST implements MST{
             }
         }
     }
+    
 
     /**
      * Returns the edges in a minimum spanning tree (or forest).

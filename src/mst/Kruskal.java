@@ -24,6 +24,7 @@ public class Kruskal {
         for (Edge e: G.edges()){
         	pq.insert(e);
         }
+        
 
         // run greedy algorithm
         UF uf = new UF(G.V());

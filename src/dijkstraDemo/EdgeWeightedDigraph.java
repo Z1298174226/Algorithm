@@ -8,12 +8,14 @@ import edu.princeton.cs.algs4.In;
 public class EdgeWeightedDigraph {
 	private long V;
 	private long E;
+	//private List<DirectedEdge>[] adj;
 	private List<DirectedEdge>[] adj;
 	@SuppressWarnings("unchecked")
 	public EdgeWeightedDigraph(long V){
 		this.V = V;
 		this.E = 0;
 		this.adj = (List<DirectedEdge>[]) new ArrayList[(int)V];
+		
 		for (int v = 0;v<V ; v++){
 			adj[v] = new ArrayList<DirectedEdge>();
 		}
@@ -52,5 +54,6 @@ public class EdgeWeightedDigraph {
 		return list;
 		
 	}
+	
 
 }
