@@ -26,8 +26,8 @@ public class AcyclicSP {
         validateVertex(s);
 
         for (int v = 0; v < G.V(); v++)
-           // distTo[v] = Double.POSITIVE_INFINITY;
-            distTo[v] = Double.NEGATIVE_INFINITY;
+            distTo[v] = Double.POSITIVE_INFINITY;
+           // distTo[v] = Double.NEGATIVE_INFINITY;
         distTo[s] = 0.0;
 
         // visit vertices in toplogical order
@@ -43,8 +43,8 @@ public class AcyclicSP {
     // relax edge e
     private void relax(DirectedEdge e) {
         int v = e.from(), w = e.to();
-        //if (distTo[w] > distTo[v] + e.weight()) {
-        if (distTo[w] < distTo[v] + e.weight()) {
+        if (distTo[w] > distTo[v] + e.weight()) {
+        //if (distTo[w] < distTo[v] + e.weight()) {
             distTo[w] = distTo[v] + e.weight();
             edgeTo[w] = e;
         }       
