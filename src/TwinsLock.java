@@ -39,7 +39,7 @@ public class TwinsLock implements Lock {
     }
     @Override
     public void lock() {
-        sync.tryAcquireShared(1);
+        sync.acquireShared(1);
     }
 
     @Override
@@ -59,7 +59,7 @@ public class TwinsLock implements Lock {
 
     @Override
     public void unlock() {
-        sync.tryReleaseShared(1);
+        sync.releaseShared(1);
 
     }
 
