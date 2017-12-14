@@ -1,4 +1,5 @@
 import java.util.Comparator;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -15,6 +16,7 @@ public class PriorityBlockingQueueDemo<E> {
     private final Condition notEmpty;
 
     private transient Comparator<? super E> comparator;
+
 
     public PriorityBlockingQueueDemo(int initialCapacity, Comparator<? super E> comparator) {
         assert initialCapacity >= 1;

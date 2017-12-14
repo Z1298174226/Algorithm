@@ -35,21 +35,19 @@ public class FordFulkerson {
     }
 
     public void initGraph() {
-        for(int i = 0; i < length; i++)
-            Arrays.fill(r[i], 0);
-        for(int i = 0; i < length; i++) {
-            for(int j = 0; j < length; j++)
-                f[i][j] = graph[i][j];
-        }
-    }
-
-    public int[][] residual(int[][] graph, int[][] f) {
         for(int i = 0; i < length; i++) {
             for(int j = 0; j < length; j++)
                 r[i][j] = graph[i][j];
         }
-        return r;
     }
+
+//    public int[][] residual(int[][] graph, int[][] f) {
+//        for(int i = 0; i < length; i++) {
+//            for(int j = 0; j < length; j++)
+//                r[i][j] = graph[i][j];
+//        }
+//        return r;
+//    }
 
     public int augumentPath(int[][] r, int source, int terminal) {
         Arrays.fill(parents, -1);
@@ -80,7 +78,7 @@ public class FordFulkerson {
 
     public int findMaxFlow() {
         initGraph();
-        r = residual(graph, f);
+      //  r = residual(graph, f);
         int sum = 0;
         int result = augumentPath(r, source, terminal);
         while(result != -1) {
@@ -98,7 +96,7 @@ public class FordFulkerson {
         return sum;
     }
     public static void main(String[] args) {
-        In in = new In(args[0]);
+        In in = new In("src\\graphFile\\maxFlow3.txt");
         FordFulkerson f = new FordFulkerson(in);
         System.out.println(f.findMaxFlow());
 

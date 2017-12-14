@@ -6,26 +6,33 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Calendar;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by qtfs on 2017/12/6.
  */
 public class Clinet {
     private static LinkedList<Custom> customList = new LinkedList<Custom>();
+    public static Queue<Custom> queue = new LinkedList<>();
     private Long serviceStartTime;
+    public Lock lock = new ReentrantLock();
+    public Condition empty = lock.newCondition();
 
     public Long getServiceStartTime() {
         return serviceStartTime;
     }
 
     public Clinet() {
-        serviceStartTime = System.currentTimeMillis();
+        serviceStartTime = System.currentTimeMillis( );
     }
 
     static {
-        InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("src\\data.txt");
+        InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("data.txt");
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         try {
             String line = reader.readLine();
@@ -45,9 +52,7 @@ public class Clinet {
                 calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time[0]));
                 calendar.set(Calendar.MINUTE, Integer.parseInt(time[1]));
                 custom.setArrivalDate(calendar.getTime());
-
                 customList.offer(custom);
-
                 line = reader.readLine();
             }
         } catch (IOException e) {
@@ -65,13 +70,12 @@ public class Clinet {
 
     public static void main(String[] args) {
         Clinet client = new Clinet();
-
         ExecutorService executorService = Executors.newCachedThreadPool();
+        executorService.execute(new QueueManager(client, System.currentTimeMillis()));
         executorService.execute(new GeneralWindow(client, "第1普通窗口"));
         executorService.execute(new GeneralWindow(client, "第2普通窗口"));
         executorService.execute(new GeneralWindow(client, "第3普通窗口"));
         executorService.execute(new VIPWindow(client));
-
         executorService.shutdown();
     }
 
@@ -91,5 +95,14 @@ public class Clinet {
             }
         }
         return customList.poll();
+    }
+
+    public synchronized  Custom nextCustom() {
+        Custom cs = null; int index = 0;
+        while(index < customList.size() && (cs = customList.get(index++)) != null) {
+            customList.remove(cs);
+            return cs;
+        }
+        return cs;
     }
 }

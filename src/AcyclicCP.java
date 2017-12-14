@@ -55,7 +55,7 @@ public class AcyclicCP {
 
 
     public static void main(String[] args) {
-        In in = new In("src\\mediumPath.txt");//In(args[0]);
+        In in = new In("src\\10000EWG.txt");//In(args[0]);
         int s = Integer.parseInt(args[1]);
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(in);
 

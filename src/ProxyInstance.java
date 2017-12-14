@@ -14,7 +14,7 @@ public class ProxyInstance implements InvocationHandler{
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         if(method.getName().equals("function"))
-            System.out.println("AfterProxy Demo!");
+            System.out.println("AfterProxy EnumDemo!");
         return method.invoke(proxied, args);
     }
 

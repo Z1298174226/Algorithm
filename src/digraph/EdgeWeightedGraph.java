@@ -28,9 +28,6 @@ public class EdgeWeightedGraph {
             int from = in.readInt();
             int to = in.readInt();
             double weight = in.readDouble();
-            int to1 = in.readInt();
-            int from1 = in.readInt();
-            double weight1 = in.readDouble();
             addEdge(new DirectedEdge(from, to, weight));
         }
     }

@@ -71,7 +71,7 @@ public class AcyclicSP {
     }
 
     public static void main(String[] args) {
-        In in = new In("src\\mediumPath.txt");//new In(args[0]);
+        In in = new In("src\\10000EWG.txt");//new In(args[0]);
         EdgeWeightedGraph G = new EdgeWeightedGraph(in);
         int source = 5;//Integer.parseInt(args[1]);
         AcyclicSP sp = new AcyclicSP(G, source);

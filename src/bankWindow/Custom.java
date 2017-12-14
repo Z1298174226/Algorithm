@@ -49,10 +49,7 @@ public class Custom implements Comparable<Custom>{
     }
 }
 
-/**
- * 客户类型枚举类
- * @author zyh
- */
+
 enum CustomType {
     VIP("the VIP custom."),
     COMMON("the COMMON custom.");
