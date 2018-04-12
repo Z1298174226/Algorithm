@@ -29,4 +29,6 @@ public class QuickFind {
                 id[p] = rootQ;
         }
     }
+
+
 }

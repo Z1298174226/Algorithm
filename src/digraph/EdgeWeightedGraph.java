@@ -24,10 +24,13 @@ public class EdgeWeightedGraph {
     public EdgeWeightedGraph(In in) {
         this(in.readInt());
         this.E = in.readInt();
-        for(int i = 0; i < E; i++) {
+        for(int i = 0; i < E / 2; i++) {
             int from = in.readInt();
             int to = in.readInt();
             double weight = in.readDouble();
+            from = in.readInt();
+            to = in.readInt();
+            weight = in.readDouble();
             addEdge(new DirectedEdge(from, to, weight));
         }
     }

@@ -1,7 +1,7 @@
 package digraph;
 
 import edu.princeton.cs.algs4.In;
-import org.jetbrains.annotations.NotNull;
+//import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,7 +46,7 @@ public class AcyclicLP {
     public Iterable<DirectedEdge> pathTo(int vertex) {
         if(!hasPathTo(vertex)) return null;
         return new Iterable<DirectedEdge>() {
-            @NotNull
+//            @NotNull
             @Override
             public Iterator<DirectedEdge> iterator() {
                 List<DirectedEdge> list = new ArrayList();
@@ -70,9 +70,9 @@ public class AcyclicLP {
     }
 
     public static void main(String[] args) {
-        In in = new In("src\\rome99.txt");
+        In in = new In("src\\path\\10000EWG.txt");
         EdgeWeightedGraph G = new EdgeWeightedGraph(in);
-        int source = 5;//Integer.parseInt(args[1]);
+        int source = 4292;//Integer.parseInt(args[1]);
         AcyclicLP sp = new AcyclicLP(G, source);
         for(int i = 0; i < G.getV(); i++) {
             if(sp.hasPathTo(i)) {

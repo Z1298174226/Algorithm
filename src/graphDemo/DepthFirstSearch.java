@@ -2,7 +2,7 @@ package graphDemo;
 
 import digraph.DirectedEdge;
 import digraph.EdgeWeightedGraph;
-import org.jetbrains.annotations.NotNull;
+//import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -40,7 +40,7 @@ public class DepthFirstSearch {
     public Iterable<Integer> reversePostQueue() {
         return new Iterable<Integer>() {
 
-            @NotNull
+     //       @NotNull
             @Override
             public Iterator<Integer> iterator() {
                 return new Iterator<Integer>() {

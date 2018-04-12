@@ -1,6 +1,6 @@
 package digraph;
 
-import org.jetbrains.annotations.NotNull;
+//import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
@@ -61,7 +61,7 @@ public class DepthFirstOrder {
 
     public Iterable<Integer> reservePostOrder() {
         return new Iterable<Integer>() {
-            @NotNull
+          //  @NotNull
             @Override
             public Iterator<Integer> iterator() {
                return new Iterator<Integer>() {
@@ -82,7 +82,7 @@ public class DepthFirstOrder {
 
     public Iterable<Integer> reservePreOrder() {
         return new Iterable<Integer>() {
-            @NotNull
+         //   @NotNull
             @Override
             public Iterator<Integer> iterator() {
                 return new Iterator<Integer>() {

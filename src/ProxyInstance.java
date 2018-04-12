@@ -11,6 +11,13 @@ public class ProxyInstance implements InvocationHandler{
     public ProxyInstance(Object proxied) {
        this.proxied = proxied;
     }
+//    @Override
+//    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+//        if(method.getName().equals("function"))
+//            System.out.println("AfterProxy EnumDemo!");
+//        return method.invoke(proxied, args);
+//    }
+
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         if(method.getName().equals("function"))
@@ -25,5 +32,7 @@ public class ProxyInstance implements InvocationHandler{
     public static void main(String[] args) {
         ProxyInstance p = new ProxyInstance(new ImplementsDemo());
         p.bind().function();
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
     }
+
 }

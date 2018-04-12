@@ -65,7 +65,7 @@ public class QuickDemo {
 
     public static void main(String[] args) {
             QuickDemo quickDemo = new QuickDemo();
-            int[] array =ProduceArray.prodecu(10000);
+            int[] array =ProduceArray.prodecu(100);
             quickDemo.sort(array, 0, array.length - 1);
             for(int i : array)
                 System.out.print(" " + i);
@@ -76,7 +76,7 @@ public class QuickDemo {
                 int[] array = new int[num];
                 Random rand = new Random();
                 for(int i = 0; i < num; i++)
-                    array[i] = rand.nextInt(20000);
+                    array[i] = rand.nextInt(200);
                 return array;
             }
     }

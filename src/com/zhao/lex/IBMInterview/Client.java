@@ -34,7 +34,7 @@ public class Client {
     }
 
     static {
-        InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("data.txt");
+        InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("graphFile\\data.txt");
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
         try{
             String line = reader.readLine();

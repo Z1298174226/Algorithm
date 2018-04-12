@@ -4,7 +4,7 @@ import digraph.DirectedEdge;
 import digraph.EdgeWeightedGraph;
 import digraph.FindCycle;
 import edu.princeton.cs.algs4.In;
-import org.jetbrains.annotations.NotNull;
+//import org.jetbrains.annotations.NotNull;
 
 
 import java.util.*;
@@ -47,7 +47,7 @@ public class BellmanFordSP {
                     onQueue[w] = true;
                 }
             }
-            if(cost % G.getV() == 0)
+            if(cost++ % G.getV() == 0)
                 findNegativeCycle();
             if(hasNegativeCycle())
                 return;
@@ -75,7 +75,7 @@ public class BellmanFordSP {
     public Iterable<DirectedEdge> pathTo(int vertex) {
         return new Iterable<DirectedEdge>() {
 
-            @NotNull
+      //      @NotNull
             @Override
             public Iterator<DirectedEdge> iterator() {
                 List<DirectedEdge> list = new ArrayList<DirectedEdge>();
@@ -99,12 +99,12 @@ public class BellmanFordSP {
     }
 
     public static void main(String[] args) {
-        In in = new In("src\\path\\10000EWG.txt");
+        In in = new In("src\\path\\tinyEWD.txt");
         int source = 5;
         EdgeWeightedGraph G  = new EdgeWeightedGraph(in);
         BellmanFordSP bellmanFordSP = new BellmanFordSP(G, source);
         for(int i = 0; i < G.getV(); i++) {
-            System.out.print(String.format("The path from %d to %d is %.3f: ", source, i, bellmanFordSP.distTo[i]));
+            System.out.println(String.format("The path from %d to %d is %.3f: ", source, i, bellmanFordSP.distTo[i]));
             if(bellmanFordSP.hasPathto(i)) {
                 for (DirectedEdge e : bellmanFordSP.pathTo(i)) {
                     System.out.print(e + "  ");
@@ -112,7 +112,7 @@ public class BellmanFordSP {
                 System.out.println();
             }
             else {
-                System.out.print("There is no path to " + i);
+                System.out.println("There is no path to " + i);
             }
         }
     }

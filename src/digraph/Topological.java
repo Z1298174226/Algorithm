@@ -13,6 +13,12 @@ public class Topological {
         if(!directedCycle.hasCycle()) {
             DepthFirstOrder directedFirstOrder = new DepthFirstOrder(G);
             order = directedFirstOrder.reservePostOrder();
+//            for(DirectedEdge e : G.adj(4292)) {
+//                System.out.print(String.format("%7d", e.to()));
+//            }
+//            System.out.println();
+//            for(int i : order)
+//                System.out.println(i);
         }
         else {
             throw new IllegalArgumentException("The graph has cycle!");

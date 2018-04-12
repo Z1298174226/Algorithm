@@ -1,7 +1,7 @@
 package sortDemo;
 
 import jdk.nashorn.tools.Shell;
-import org.jetbrains.annotations.Contract;
+//import org.jetbrains.annotations.Contract;
 
 import java.util.Random;
 
@@ -17,7 +17,7 @@ public class ShellSort {
         array[q] = temp;
     }
 
-    @Contract(pure = true)
+   // @Contract(pure = true)
     private boolean less(int[] array, int p, int q) {
         return array[p] - array[q] < 0;
     }
